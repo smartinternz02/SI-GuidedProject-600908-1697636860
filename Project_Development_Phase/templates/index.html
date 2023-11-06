@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Sales</title>
+</head>
+<body>
+    <h1>Predict Sales</h1>
+    <form action="/predict" method="POST">
+        <label for="store">Store:</label>
+        <input type="text" name="store" required><br><br>
+
+        <label for="dept">Department:</label>
+        <input type="text" name="dept" required><br><br>
+
+        <label for="date">Date (YYYY-MM-DD):</label>
+        <input type="text" name="date" required><br><br>
+
+        <label for="size">Size:</label>
+        <input type="text" name="size" required><br><br>
+
+        <label for="temp">Temperature:</label>
+        <input type="text" name="temp" required><br><br>
+
+        <label for="isHolidayRadio">Is Holiday:</label>
+        <input type="radio" name="isHolidayRadio" value="1" required> Yes
+        <input type="radio" name="isHolidayRadio" value="0" required> No<br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+    
+    {% if output %}
+    <h2>Predicted Sales:</h2>
+    <p>Store: {{ store }}</p>
+    <p>Department: {{ dept }}</p>
+    <p>Month: {{ month_name }}</p>
+    <p>Year: {{ year }}</p>
+    <p>Predicted Sales: {{ output }}</p>
+    {% endif %}
+</body>
+</html>
